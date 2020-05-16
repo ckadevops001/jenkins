@@ -37,7 +37,7 @@
     {
       "type": "shell-local",
         "inline": [
-          "/usr/bin/docker push muruganu3c.mylabserver.com/docker-private/express:1.0"
+          "/usr/bin/docker push muruganu3c.mylabserver.com/docker-private/express:{{user `tag`}}"
         ]
     }
   ]
