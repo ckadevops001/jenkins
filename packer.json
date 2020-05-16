@@ -1,7 +1,7 @@
 {
   "variables": {
-    "repository": "la/express",
-    "tag": "0.1.0"
+    "repository": "muruganu3c.mylabserver.com/docker-private/express",
+    "tag": "1.0"
   },
   "builders": [
     {
@@ -29,19 +29,16 @@
     }
   ],
   "post-processors": [
-    [
-      {
-       "type": "docker-import",
-       "repository": "{{user `repository`}}",
-       "tag": "{{user `tag`}}"
-      },
-      {
-       "type": "docker-push",
-       "login_server": "https://muruganu3c.mylabserver.com",
-            "login": "true",
-            "login_username": "admin",
-            "login_password": "Harbor12345"
-      }
-    ]
+    {
+      "type": "docker-tag",
+      "repository": "{{user `repository`}}",
+      "tag": "{{user `tag`}}"
+    },
+    {
+      "type": "shell-local",
+        "inline": [
+          "/usr/bin/docker push muruganu3c.mylabserver.com/docker-private/express:1.0"
+        ]
+    }
   ]
 }
