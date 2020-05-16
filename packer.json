@@ -31,11 +31,17 @@
   "post-processors": [
     [
       {
-       "type": "docker-tag",
+       "type": "docker-import",
        "repository": "{{user `repository`}}",
        "tag": "{{user `tag`}}"
       },
-      "docker-push"
+      {
+       "type": "docker-push",
+       "login_server": "https://muruganu3c.mylabserver.com",
+            "login": "true",
+            "login_username": "admin",
+            "login_password": "Harbor12345"
+      }
     ]
   ]
 }
