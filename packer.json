@@ -6,7 +6,7 @@
   "builders": [
     {
       "type": "docker",
-      "author": "Travis Thomsen",
+      "author": "Murugan Uikattan",
       "image": "node",
       "commit": true,
       "changes": [
@@ -37,7 +37,7 @@
     {
       "type": "shell-local",
         "inline": [
-          "/usr/bin/docker push muruganu3c.mylabserver.com/docker-private/express:{{user `tag`}}"
+          "/usr/bin/docker push {{user `repository`}}:{{user `tag`}}"
         ]
     }
   ]
